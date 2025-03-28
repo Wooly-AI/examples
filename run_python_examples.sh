@@ -80,7 +80,7 @@ function imagenet() {
     mv Socks-clinton.jpg sample/train/n
     cp sample/train/n/* sample/val/n/
   fi
- NCCL_DISABLE_P2P=1 python main.py --epochs 1 sample/ || error "imagenet example failed"
+ python main.py --epochs 1 sample/ --dist-backend gloo || error "imagenet example failed"
 }
 
 function language_translation() {
