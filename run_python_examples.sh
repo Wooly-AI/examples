@@ -80,7 +80,7 @@ function imagenet() {
     mv Socks-clinton.jpg sample/train/n
     cp sample/train/n/* sample/val/n/
   fi
- python main.py --epochs 1 sample/ --dist-backend gloo || error "imagenet example failed"
+ python3 main.py --epochs 1 sample/ --dist-backend gloo || error "imagenet example failed"
 }
 
 function language_translation() {
