@@ -19,6 +19,7 @@ function error() {
   else
     ERRORS="$ERRORS\n$ERR"
   fi
+  exit 1
 }
 
 function install_deps() {
