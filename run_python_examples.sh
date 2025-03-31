@@ -71,17 +71,17 @@ function fast_neural_style() {
   python neural_style/neural_style.py eval --content-image images/content-images/amber.jpg --model saved_models/candy.pth --output-image images/output-images/amber-candy.jpg --cuda $CUDA --mps || error "neural_style.py failed"
 }
 
-function imagenet() {
-  start
-  if [[ ! -d "sample/val" || ! -d "sample/train" ]]; then
-    mkdir -p sample/val/n
-    mkdir -p sample/train/n
-    curl -O "https://upload.wikimedia.org/wikipedia/commons/5/5a/Socks-clinton.jpg" || { error "couldn't download sample image for imagenet"; return; }
-    mv Socks-clinton.jpg sample/train/n
-    cp sample/train/n/* sample/val/n/
-  fi
- python3 main.py --epochs 1 sample/ --dist-backend gloo || error "imagenet example failed"
-}
+# function imagenet() {
+#   start
+#   if [[ ! -d "sample/val" || ! -d "sample/train" ]]; then
+#     mkdir -p sample/val/n
+#     mkdir -p sample/train/n
+#     curl -O "https://upload.wikimedia.org/wikipedia/commons/5/5a/Socks-clinton.jpg" || { error "couldn't download sample image for imagenet"; return; }
+#     mv Socks-clinton.jpg sample/train/n
+#     cp sample/train/n/* sample/val/n/
+#   fi
+#   python main.py --epochs 1 sample/ || error "imagenet example failed"
+# }
 
 function language_translation() {
   start
