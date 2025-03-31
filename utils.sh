@@ -19,7 +19,9 @@ function error() {
   else
     ERRORS="$ERRORS\n$ERR"
   fi
-  exit 1
+  # Get the name of the parent function that called error()
+  PARENT_FUNCTION=${FUNCNAME[1]}
+  echo "Error in function: $PARENT_FUNCTION"
 }
 
 function install_deps() {
